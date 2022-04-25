@@ -9,7 +9,8 @@ Each and every field you are going to see on the page is optional.
 * It helps you to search specific quote or text with 100% Accuracy.
 * It helps you to search content under the certain website user wants to search in.
 
-*Disclaimer*
+*Disclaimer :*
+
 We Don't promote any kind of privacy, GooglePro is made just to enhance the experience of user. If user uses GooglePro for any kind of piracy or unethical purposes , We are not responsible.
 
 Link:
