@@ -41,10 +41,10 @@ searchBar = document.getElementById('searchBar');
 searchBar.onkeyup = function (e) {
     searchBarSearch = e.target.value;
     console.log(searchBarSearch);
-    }
+}
 
 // keyword Box
-keywordSearch = "";     
+keywordSearch = "";
 keywordBox = document.getElementById('keywordBox');
 keywordBox.onkeyup = function (e) {
     keywordSearch = e.target.value;
