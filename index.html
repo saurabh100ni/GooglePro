@@ -1,26 +1,13 @@
 <!DOCTYPE html>
 <html>
-<center>
-    <header>
-        <ul>
-            <li><a class="links" href="#user"><button class="signbutton" type="button">Sign in</button></a></li>
-            <li><a href="#grid"><img class="grid"
-                        src="https://cdn3.iconfinder.com/data/icons/navigation-and-settings/24/Material_icons-01-11-512.png"
-                        title="Google apps"></a></li>
-            <link rel="stylesheet" type="text/css" href="src/index.css">
-            <!-- javaScript -->
-            
-            <!--Google Analytics Code-->
-            <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-NQ62KKWQ71"></script>
-            <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-NQ62KKWQ71');
-            </script>
 
-        </ul>
+<center>
+
+    <header>
+
+        <!-- stylesheet -->
+        <link rel="stylesheet" type="text/css" href="src/index.css">
+
     </header>
 
     <body class="bg-dark">
@@ -41,8 +28,9 @@
 
         <!-- Google Search and I'm Feeling Lucky Button -->
         <div class="buttons">
-            <button class="button bg-dark text-light" id="search" type="button">Google Search</button>
-            <a href="https://www.google.com/doodles" style="text-decoration: none;"><button class="button bg-dark text-light">I'm Feeling
+            <button class="button bg-dark text-light tab" type="button" id="search">Google Search</button>
+            <a href="https://www.google.com/doodles" style="text-decoration: none;"><button
+                    class="button bg-dark text-light tab">I'm Feeling
                     Lucky</button></a>
         </div>
 
@@ -54,10 +42,10 @@
             <div class="row">
                 <div class="col-md-4">
                     <!--File Type Card-->
-                    <div class="card">
-                        <div class="card-body">
+                    <div class="card bg-primary text-light">
+                        <div class="card-body ">
                             <h5 class="card-title"><b>File Type</b></h5>
-                            <p class="card-text"><b>Are you looking for a file ?</b><br></p>
+                            <p class="card-text">Are you looking for a file ?<br></p>
                             <!-- Definition of file type attribute -->
                             <p>Tell us what file are you looking for and we will show you the best
                                 result.</p>
@@ -67,6 +55,8 @@
                                 <!-- Drop Down Button -->
                                 <select class="form-select FileSelectMenu" id="fileTypeMenu">
                                     <option selected>select File Type</option>
+                                    <option value="PDF">Books</option>
+                                    <option value="MKV">Movies</option>
                                     <option value="PDF">PDF</option>
                                     <option value="DOC">DOC</option>
                                     <option value="DOCX">DOCX</option>
@@ -85,7 +75,6 @@
                                     <option value="MPEG">MPEG</option>
                                     <option value="FLV">FLV</option>
                                     <option value="MOV">MOV</option>
-                                    <option value="MKV">MKV</option>
                                     <option value="WMV">WMV</option>
                                     <option value="WEBM">WEBM</option>
                                     <option value="M4A">M4A</option>
@@ -112,9 +101,10 @@
 
                 <!-- Keywords Tab -->
                 <div class="col-md-4">
-                    <div class="card">
+                    <div class="card bg-danger text-light">
                         <div class="card-body">
-                            <h5 class="card-title">Is there any specific keyword search must include ?</h5>
+                            <h5 class="card-title">Keywords</h5>
+                            <p class="card-text">Is there any specific keyword search must include ?<br></p>
                             <textarea name="keywordBox" id="keywordBox" cols="30" rows="10"
                                 placeholder="Enter the specific keywords or the sentence that the search must include and hit Enter  for Example : Quotes, Question "></textarea>
 
@@ -125,26 +115,65 @@
 
                 <!-- Data Tab -->
                 <div class="col-md-4" id="dataTab">
-                    <div class="card">
+                    <div class="card bg-warning">
                         <div class="card-body">
                             <h5 class="card-title">Data</h5>
-                            <p><b><br>Courses:</b> will find Courses on Google Drive<br><b>Collection:</b> will find you similar data based on the fields you have entered</p>
+                            <p><b>Courses:</b> will find Courses on Google Drive<br><b>Collection:</b> will find
+                                you similar data based on the fields you have entered</p>
                             <div class="dropdown">
+
                                 <!-- Drop Down Button -->
                                 <select class="form-select FileSelectMenu" id="siteTypeMenu">
                                     <option selected value="drive.google.com">Courses</option>
                                     <option selected value="drive.google.com">collection of data</option>
                                     <option selected value="other">any particular website you want results from</option>
                                     <option selected>select Field Type</option>
-
-
                                 </select>
-                            </div>
 
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Date Range -->
+                <div class="col-md-4" id="dateTab">
+                    <div class="card bg-success text-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Date Range</h5>
+                            <p>Enter the starting from date or the ending with date or both for the results</p>
+                            <div class="dropdown">
+
+                                <!-- Drop Down Button -->
+                                <select class="form-select DateMenu" id="startingDateMenu">
+
+                                </select>
+                                <select class="form-select DateMenu" id="endingDateMenu">
+                                    <option selected value="endingDate">select ending Date</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sun rise and sun set -->
+                <div class="col-md-4" id="dateTab">
+                    <div class="card bg-success text-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Date Range</h5>
+                            <p>Enter the starting from date or the ending with date or both for the results</p>
+                            <div class="dropdown">
+
+                                <!-- Drop Down Button -->
+                                <select class="form-select DateMenu" id="startingDateMenu">
+
+                                </select>
+                                <select class="form-select DateMenu" id="endingDateMenu">
+                                    <option selected value="endingDate">select ending Date</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
