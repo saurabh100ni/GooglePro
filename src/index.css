@@ -111,7 +111,7 @@ li a:hover {
    margin-bottom: 0.5px; 
 }
 
-#keywordBox {
+.keywordBox {
   width: 100%;
   height: 115px;
   padding: 30px !important;
@@ -141,4 +141,10 @@ li a:hover {
 
 .DateMenu{
   margin-top:1em;
+}
+
+#sunCityName {
+  height: 40px !important;
+  padding : 5px;
+  width: 100% !important;
 }

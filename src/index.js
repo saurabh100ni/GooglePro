@@ -27,6 +27,7 @@ endingDate.onchange = function (e) {
     finalizingDate();
 
 }
+dateSearch = "";
 function finalizingDate() {
     if (startingDateYear != "" && endingDateYear != "") {
         dateSearch = `"${startingDateYear}..${endingDateYear}"`;
@@ -41,7 +42,11 @@ searchBar = document.getElementById('searchBar');
 searchBar.onkeyup = function (e) {
     searchBarSearch = e.target.value;
     console.log(searchBarSearch);
+    if (e.keyCode == 13) {
+        search();
+    }
 }
+
 
 // keyword Box
 keywordSearch = "";
@@ -51,9 +56,35 @@ keywordBox.onkeyup = function (e) {
     console.log(keywordSearch);
     keywordSearch = ` "${keywordSearch}" `;
     console.log("->", keywordSearch);
+    if (e.keyCode == 13) {
+        search();
+    }
 }
 
+// sun Status
+sunStatusSearch = "";
+sunStatusTime = "";
+sunStatusCity = "";
+sunStatus = document.getElementById('sunStatusMenu');
+sunStatus.onchange = function (e) {
+    sunStatusTime = e.target.value;
+    console.log(sunStatusSearch);
+    setSun();   
+}
+sunCityName = document.getElementById('sunCityName');
+sunCityName.onkeyup = function (e) {
+    sunStatusCity = e.target.value;
+    setSun();
+    if (e.keyCode == 13) {
+        search();
+    }
+}
 
+function setSun()
+{
+    sunStatusSearch = `${sunStatusTime}:${sunStatusCity}`;
+
+}
 
 // File type Menu
 fileTypeMenu = document.getElementById('fileTypeMenu');
@@ -104,7 +135,9 @@ document.getElementById('search').onclick = function () {
 // final search
 function search() {
     finalSearch = "";
-    finalSearch = keywordSearch + " " + fileSearch + " " + siteSearch + " " + searchBarSearch + " " + dateSearch;
+    finalSearch = keywordSearch + " " + fileSearch + " " + siteSearch + " " + searchBarSearch + " " + dateSearch + " " + sunStatusSearch;
     window.open('http://google.com/search?q=' + finalSearch);
     location.reload();
 }
+
+
