@@ -1,8 +1,50 @@
+// Date Range
+option = ""
+startingDate = document.getElementById('startingDateMenu');
+endingDate = document.getElementById('endingDateMenu');
+year = new Date().getFullYear();
+function setDate() {
+    for (var i = 1975; i <= year; i++) {
+        option = `<option selected value="${i}">${i}</option>`;
+        startingDate.innerHTML += option;
+        endingDate.innerHTML += option;
+    }
+    startingDate.innerHTML += `<option selected value="">select starting Date</option>`;
+    endingDate.innerHTML += `<option selected value="">select ending Date</option>`;
+}
+startingDateYear = "";
+endingDateYear = "";
+// call setDate on on load
+window.onload = setDate();
+startingDate.onchange = function (e) {
+    startingDateYear = e.target.value;
+    console.log(startingDateYear);
+    finalizingDate();
+}
+endingDate.onchange = function (e) {
+    endingDateYear = e.target.value;
+    console.log(endingDateYear);
+    finalizingDate();
 
+}
+function finalizingDate() {
+    if (startingDateYear != "" && endingDateYear != "") {
+        dateSearch = `"${startingDateYear}..${endingDateYear}"`;
+        console.log(dateSearch);
+    }
+}
+
+
+// searchBar
+searchBarSearch = "";
 searchBar = document.getElementById('searchBar');
+searchBar.onkeyup = function (e) {
+    searchBarSearch = e.target.value;
+    console.log(searchBarSearch);
+    }
 
-// keyword Box0
-keywordSearch = "";
+// keyword Box
+keywordSearch = "";     
 keywordBox = document.getElementById('keywordBox');
 keywordBox.onkeyup = function (e) {
     keywordSearch = e.target.value;
@@ -10,8 +52,6 @@ keywordBox.onkeyup = function (e) {
     keywordSearch = ` "${keywordSearch}" `;
     console.log("->", keywordSearch);
 }
-
-
 
 
 
@@ -23,16 +63,13 @@ fileTypeMenu.addEventListener('change', function () {
     if (fileTypeMenu.value == 'other') {
 
         // take input for value
-        var newFileType = prompt('Enter new file type:');
-
-        // add to fileTypeMenu
-        var newOption = document.createElement('option');
-        newOption.value = newFileType;
-        fileTypeMenu.value = newFileType;
+        var fileType = prompt("Enter file type");
+        fileSearch = ` filetype:${fileType} `;
+        console.log(fileSearch);
 
     }
-    console.log(' fileTypeMenu.value:' + fileTypeMenu.value);
     fileSearch += ' filetype:' + fileTypeMenu.value;
+    console.log(' fileTypeMenu.value:' + fileTypeMenu.value);
 });
 
 // site type Menu
@@ -57,27 +94,17 @@ siteTypeMenu.addEventListener('change', function () {
 
 
 
-// searchBar 
-searchBarSearch = "";
-searchBar.onkeyup = function (e) {
-    searchBarSearch = e.target.value;
-    console.log(searchBarSearch);
-    searchBarSearch = ` ${searchBarSearch} `;
-    console.log("->", searchBarSearch);
-    
-}
-
 // Google Search button click
 document.getElementById('search').onclick = function () {
     search();
 };
 
+
+
 // final search
 function search() {
     finalSearch = "";
-    finalSearch = keywordSearch + " " + fileSearch + " " + siteSearch + " " + searchBarSearch;
+    finalSearch = keywordSearch + " " + fileSearch + " " + siteSearch + " " + searchBarSearch + " " + dateSearch;
     window.open('http://google.com/search?q=' + finalSearch);
     location.reload();
 }
-
-
