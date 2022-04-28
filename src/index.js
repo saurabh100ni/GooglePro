@@ -100,6 +100,7 @@ document.getElementById('search').onclick = function () {
 };
 
 
+
 // final search
 function search() {
     finalSearch = "";
