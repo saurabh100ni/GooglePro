@@ -131,6 +131,10 @@ li a:hover {
   overflow-x: hidden;
   overflow-y: auto;
 }
-.button {
+.tab {
   border: 1px solid #dcdcdc;
+}
+
+.card{
+  margin-top:1em;
 }
